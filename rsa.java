@@ -35,7 +35,7 @@ class rsa {
         char msg[] = msg1.toCharArray();
         
         for (i = 0; i < msg.length; i++)
-            pt[i] = msg[i];
+            pt[i] = msg[i]-97;
         
         for (d = 1; d < Z; ++d)
             if (((e * d) % Z) == 1)
@@ -48,13 +48,13 @@ class rsa {
             ct[i] = mult(pt[i], e, n);
         
         for (i = 0; i < msg.length; i++)
-            System.out.print("\t" + ct[i]);
+            System.out.print("\t" + (ct[i]+97));
         
         System.out.println("\nPlain Text = ");
         for (i = 0; i < msg.length; i++)
             pt[i] = mult(ct[i], d, n);
         
         for (i = 0; i < msg.length; i++)
-            System.out.print((char) pt[i]);
+            System.out.print((char) (pt[i]+97));
     }
 }
